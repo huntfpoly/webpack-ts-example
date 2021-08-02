@@ -12,18 +12,15 @@ rootHTML.innerHTML = `
 router
   .on({
     '/': function (match: string) {
-      console.log('home1');
+      const about = document.querySelector('h1') as HTMLDivElement;
+      about.innerHTML = 'home';
     },
     '/about': function () {
-      const about = document.querySelector('h1')?.innerHTML;
-      console.log(about);
-    },
-    '*': function () {
-      console.log('link not found');
-      router.navigate('/');
+      const about = document.querySelector('h1') as HTMLDivElement;
+      about.innerHTML = 'about';
+      // console.log(about);
     },
   })
   .resolve();
 router.lastResolved();
 router.updatePageLinks();
-console.log(!router.lastResolved()?.[0]?.url);
